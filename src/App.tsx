@@ -1,41 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { AddNewItem } from './AddNewItem';
+import { Card } from './Card';
+import { Column } from './Column';
+import { AppContainer } from './styles';
 
-interface AppProps {}
-
-function App({}: AppProps) {
-  // Create the count state.
-  const [count, setCount] = useState(0);
-  // Create the counter (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-  // Return the App component.
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <AppContainer>
+      <Column text="To Do">
+        <Card text="Generate app Scaffold" />
+      </Column>
+      <Column text="In Progress">
+        <Card text="Learn TypeScript" />
+      </Column>
+      <Column text="Done">
+        <Card text="Begin to use static typing" />
+      </Column>
+      <AddNewItem toggleButtonText="+Add Another list" onAdd={console.log} />
+    </AppContainer>
   );
-}
+};
 
 export default App;
