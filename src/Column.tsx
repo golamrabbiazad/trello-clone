@@ -15,9 +15,9 @@ export const Column = ({
       <ColumnTitle>{text}</ColumnTitle>
       {children}
       <AddNewItem
-        dark
         toggleButtonText="+ Add anthter task"
         onAdd={console.log}
+        dark
       />
     </ColumnContainer>
   );

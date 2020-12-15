@@ -16,7 +16,7 @@ const App = () => {
       <Column text="Done">
         <Card text="Begin to use static typing" />
       </Column>
-      <AddNewItem toggleButtonText="+Add Another list" onAdd={console.log} />
+      <AddNewItem toggleButtonText="+ Add Another list" onAdd={console.log} />
     </AppContainer>
   );
 };

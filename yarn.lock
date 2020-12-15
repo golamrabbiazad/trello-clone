@@ -463,6 +463,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/command-line-args@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@types/command-line-args/-/command-line-args-5.0.0.tgz#484e704d20dbb8754a8f091eee45cdd22bcff28c"
+  integrity sha512-4eOPXyn5DmP64MCMF8ePDvdlvlzt2a+F8ZaVjqmh2yFCpGjc1kI3kGnCFYX9SCsGTjQcWIyVZ86IHCEyjy/MNg==
+
 "@types/connect@*":
   version "3.4.34"
   resolved "https://registry.yarnpkg.com/@types/connect/-/connect-3.4.34.tgz#170a40223a6d666006d93ca128af2beb1d9b1901"
@@ -740,7 +745,7 @@
   dependencies:
     semver "^7.3.2"
 
-"@web/dev-server-core@^0.2.11", "@web/dev-server-core@^0.2.17":
+"@web/dev-server-core@^0.2.11", "@web/dev-server-core@^0.2.17", "@web/dev-server-core@^0.2.19":
   version "0.2.19"
   resolved "https://registry.yarnpkg.com/@web/dev-server-core/-/dev-server-core-0.2.19.tgz#ad5daa7484ad38fcd061036cfc3c1cb7cf69a475"
   integrity sha512-TaxwNsvj6pfdKLyqZfYIU1ikh+Q2ZlUwBpXRYWtdG6r2GL232hR+Zm/KooBBdwpOCjuMMlkzz70ImYnD6+mPIg==
@@ -773,6 +778,27 @@
     parse5 "^6.0.1"
     rollup "^2.34.2"
     whatwg-url "^8.4.0"
+
+"@web/dev-server@^0.0.29":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@web/dev-server/-/dev-server-0.0.29.tgz#b02ef5f3f1cf647c5413feeac80b4fb48b6acd78"
+  integrity sha512-Y28qjWToqDcczQoFTLrNPS0l/yfDYpGt1oDF+EmRtuz488CG6x4GEmZsi/Zh9xl0aLhHRAdjOypakvocpCM4AQ==
+  dependencies:
+    "@babel/code-frame" "^7.10.4"
+    "@rollup/plugin-node-resolve" "^10.0.0"
+    "@types/command-line-args" "^5.0.0"
+    "@web/config-loader" "^0.1.1"
+    "@web/dev-server-core" "^0.2.19"
+    "@web/dev-server-rollup" "^0.2.13"
+    camelcase "^6.2.0"
+    chalk "^4.1.0"
+    command-line-args "^5.1.1"
+    command-line-usage "^6.1.1"
+    debounce "^1.2.0"
+    deepmerge "^4.2.2"
+    ip "^1.1.5"
+    open "^7.3.0"
+    portfinder "^1.0.28"
 
 "@web/parse5-utils@^1.0.0":
   version "1.1.2"
@@ -861,14 +887,13 @@
     "@types/mocha" "^8.0.1"
     "@web/test-runner-core" "^0.8.4"
 
-"@web/test-runner@^0.10.1":
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/@web/test-runner/-/test-runner-0.10.1.tgz#0b6073a3d4088a176c5d250d0e78e82d9ef4e08e"
-  integrity sha512-RLVDLMzipezjXb581gBVMe7ke9DDcvLREFmJm9NV3RpRf/GAbnalC3rS7fp59KVpco0JDkj9QLPTyMcKOUz1Fw==
+"@web/test-runner@^0.10.2":
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/@web/test-runner/-/test-runner-0.10.2.tgz#f7fab8c3624a6cc4c8d31ac95aedcfa83a9260a3"
+  integrity sha512-nTTv5q8VvC4nMOeD3ATaH/SU1Ief5odCqOv7SpsuvGjYz9hrQJ0y4MN+lBnYZ+jA+vc9cXAIeXKbbsJPmnu8FA==
   dependencies:
-    "@rollup/plugin-node-resolve" "^10.0.0"
     "@web/config-loader" "^0.1.2"
-    "@web/dev-server-rollup" "^0.2.13"
+    "@web/dev-server" "^0.0.29"
     "@web/test-runner-chrome" "^0.7.3"
     "@web/test-runner-cli" "^0.6.13"
     "@web/test-runner-commands" "^0.2.1"
@@ -1673,10 +1698,10 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-esinstall@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/esinstall/-/esinstall-0.5.0.tgz#6d71648ea32e5a89b3a6361f7f4c3aa1ef783f89"
-  integrity sha512-zdw6WxC+K0ZwXyS+z814TmXD3JSah4wxqiLLrMMX9sueIaIvgfCqFWplmKdwnt2W8DRlGzmTnZGSrhOXMJAWZw==
+esinstall@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/esinstall/-/esinstall-0.5.1.tgz#209e83be9186be8d917fd71278ce33d2839f4cb0"
+  integrity sha512-VMg7lZ+QPL/YIwFfyELYR8rNUTpU2TqM5BeLbLmmaTDol1cnuo/UAxN8H3OalaBjTl9oGllXcDq6bLeWSUJa9A==
   dependencies:
     "@rollup/plugin-alias" "^3.0.1"
     "@rollup/plugin-commonjs" "^16.0.0"
@@ -3253,14 +3278,14 @@ signal-exit@^3.0.2, signal-exit@^3.0.3:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
-skypack@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/skypack/-/skypack-0.2.0.tgz#c0c49759958d6a8c4a15cf585af450611db4e6a1"
-  integrity sha512-Z+Owr5w0dZXZD2suXzoqqUwMnfolOP3emDS9mq9yotBvjDJkiGdwN7Gj09zpKKoctb8+LSTTsrawcSLsA5ct2w==
+skypack@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/skypack/-/skypack-0.2.1.tgz#700380a639ba13e5dc5a861932430ee5606e8d71"
+  integrity sha512-+LE2zg5Hdcxnq2PYfo6k/jqLA7vlCljZuGo6x9x9+83GvGULvdBGLCLIa5wUhcHQUIts4m9hB+f3asTPL/TcsA==
   dependencies:
     cacache "^15.0.0"
     cachedir "^2.3.0"
-    esinstall "^0.5.0"
+    esinstall "^0.5.1"
     etag "^1.8.1"
     find-up "^5.0.0"
     got "^11.1.4"
@@ -3285,10 +3310,10 @@ slice-ansi@^4.0.0:
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
 
-snowpack@^2.18.3:
-  version "2.18.3"
-  resolved "https://registry.yarnpkg.com/snowpack/-/snowpack-2.18.3.tgz#97dbaf5ad1199b92ed6b8e1edbf90ba873c1fb83"
-  integrity sha512-37rMUV7hv/BP/5EOKUPSlmpL4T0QYVOicgfFT2PPAVSH1J8BcQ0GcvMp2Y+07T8vM/uWGLJtd76YH85Y7qS2YA==
+snowpack@^2.18.4:
+  version "2.18.4"
+  resolved "https://registry.yarnpkg.com/snowpack/-/snowpack-2.18.4.tgz#819ac2bf05623f85155f82e2e49f8d5f8abde664"
+  integrity sha512-tZpcK3UBtYVF9ED1h9h9qkSYSC2IzVXjOHN+Iqo3tnDMCHvv/fgTMQT3+nJwPerBYvUemaCTS8pjRQDYfbWfQA==
   dependencies:
     "@snowpack/plugin-build-script" "^2.0.12"
     "@snowpack/plugin-run-script" "^2.2.1"
@@ -3303,7 +3328,7 @@ snowpack@^2.18.3:
     detect-port "^1.3.0"
     es-module-lexer "^0.3.24"
     esbuild "^0.8.7"
-    esinstall "^0.5.0"
+    esinstall "^0.5.1"
     etag "^1.8.1"
     execa "^4.0.3"
     find-cache-dir "^3.3.1"
@@ -3325,7 +3350,7 @@ snowpack@^2.18.3:
     resolve-from "^5.0.0"
     rimraf "^3.0.0"
     signal-exit "^3.0.3"
-    skypack "^0.2.0"
+    skypack "^0.2.1"
     source-map "^0.7.3"
     strip-ansi "^6.0.0"
     strip-comments "^2.0.1"

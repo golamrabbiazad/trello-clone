@@ -5,7 +5,7 @@ import { AddItemButton } from './styles';
 interface AddNewItemProps {
   onAdd(text: string): void;
   toggleButtonText: string;
-  dark?: Boolean;
+  dark?: boolean;
 }
 
 export const AddNewItem = (props: AddNewItemProps) => {
