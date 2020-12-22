@@ -1,6 +1,10 @@
 import { nanoid } from 'nanoid';
 import React, { createContext, useReducer, useContext } from 'react';
-import { findItemIndexById, overrideItemAtIndex } from './utils/arrayUtils';
+import {
+  findItemIndexById,
+  overrideItemAtIndex,
+  moveItem,
+} from './utils/arrayUtils';
 
 interface Task {
   id: string;
@@ -68,6 +72,13 @@ type Action =
         text: string;
         listId: string;
       };
+    }
+  | {
+      type: 'MOVIE_LIST';
+      payload: {
+        dragIndex: number;
+        hoverIndex: number;
+      };
     };
 
 const appStateReducer = (state: AppState, action: Action): AppState => {
@@ -111,6 +122,14 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
           updatedTargetList,
           targetListIndex,
         ),
+      };
+    }
+    case 'MOVIE_LIST': {
+      const { dragIndex, hoverIndex } = action.payload;
+
+      return {
+        ...state,
+        lists: moveItem(state.lists, dragIndex, hoverIndex),
       };
     }
     default: {
