@@ -20,7 +20,6 @@ export function overrideItemAtIndex<T>(
 
 export const moveItem = <T>(array: T[], from: number, to: number) => {
   const item = array[from];
-
   return insertItemAtIndex(removeItemAtIndex(array, from), item, to);
 };
 

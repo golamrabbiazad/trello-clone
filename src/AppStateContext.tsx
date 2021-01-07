@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid';
 import React, { createContext, useReducer, useContext } from 'react';
+import type { DragItem } from './DragItem';
 import {
   findItemIndexById,
   overrideItemAtIndex,
@@ -17,8 +18,9 @@ interface List {
   tasks: Task[];
 }
 
-interface AppState {
+export interface AppState {
   lists: List[];
+  draggedItem: DragItem | undefined;
 }
 
 const appData: AppState = {
@@ -39,6 +41,7 @@ const appData: AppState = {
       tasks: [{ id: 'c3', text: 'Begin to use static typing' }],
     },
   ],
+  draggedItem: undefined,
 };
 
 interface AppStateContextProps {
@@ -79,6 +82,10 @@ type Action =
         dragIndex: number;
         hoverIndex: number;
       };
+    }
+  | {
+      type: 'SET_DRAGGED_ITEM';
+      payload: DragItem | undefined;
     };
 
 const appStateReducer = (state: AppState, action: Action): AppState => {
@@ -131,6 +138,9 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
         ...state,
         lists: moveItem(state.lists, dragIndex, hoverIndex),
       };
+    }
+    case 'SET_DRAGGED_ITEM': {
+      return { ...state, draggedItem: action.payload };
     }
     default: {
       return state;

@@ -5,4 +5,4 @@ export type ColumnDragItem = {
   type: 'COLUMN';
 };
 
-export type DragImte = ColumnDragItem;
+export type DragItem = ColumnDragItem;
