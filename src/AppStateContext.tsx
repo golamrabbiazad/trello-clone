@@ -77,7 +77,7 @@ type Action =
       };
     }
   | {
-      type: 'MOVIE_LIST';
+      type: 'MOVE_LIST';
       payload: {
         dragIndex: number;
         hoverIndex: number;
@@ -131,7 +131,7 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
         ),
       };
     }
-    case 'MOVIE_LIST': {
+    case 'MOVE_LIST': {
       const { dragIndex, hoverIndex } = action.payload;
 
       return {
