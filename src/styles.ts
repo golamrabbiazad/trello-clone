@@ -10,9 +10,9 @@ export const AppContainer = styled.div`
   width: 100%;
 `;
 
-interface DragPreviewContainerProps {
+type DragPreviewContainerProps = {
   isHidden?: boolean;
-}
+};
 
 export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
   opacity: ${(props) => (props.isHidden ? 0.3 : 1)};
@@ -43,9 +43,9 @@ export const CardContainer = styled.div`
   box-shadow: #091e4240 0px 1px 0px 0px;
 `;
 
-interface AddItemButtonProps {
+type AddItemButtonProps = {
   dark?: Boolean;
-}
+};
 
 export const AddItemButton = styled.button<AddItemButtonProps>`
   background-color: #ffffff3d;

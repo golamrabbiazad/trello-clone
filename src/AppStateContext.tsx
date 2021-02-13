@@ -7,21 +7,21 @@ import {
   moveItem,
 } from './utils/arrayUtils';
 
-interface Task {
+type Task = {
   id: string;
   text: string;
-}
+};
 
-interface List {
+type List = {
   id: string;
   text: string;
   tasks: Task[];
-}
+};
 
-export interface AppState {
+export type AppState = {
   lists: List[];
   draggedItem: DragItem | undefined;
-}
+};
 
 const appData: AppState = {
   lists: [
@@ -44,10 +44,10 @@ const appData: AppState = {
   draggedItem: undefined,
 };
 
-interface AppStateContextProps {
+type AppStateContextProps = {
   state: AppState;
   dispatch: React.Dispatch<Action>;
-}
+};
 
 const AppStateContext = createContext<AppStateContextProps>(
   {} as AppStateContextProps,
