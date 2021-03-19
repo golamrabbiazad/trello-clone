@@ -7,19 +7,15 @@ import type { DragItem } from './DragItem';
 export const useItemDrag = (item: DragItem) => {
   const { dispatch } = useAppState();
 
-  const [, drag, preview] = useDrag({
+  const [, drag, preview ] = useDrag({
     item,
     begin: () =>
       dispatch({
-        type: 'SET_DRAGGED_ITEM',
-        payload: item,
+        type: "SET_DRAGGED_ITEM",
+        payload: item
       }),
-    end: () =>
-      dispatch({
-        type: 'SET_DRAGGED_ITEM',
-        payload: undefined,
-      }),
-  });
+    end: () => dispatch({ type: "SET_DRAGGED_ITEM", payload: undefined })
+  })
 
   useEffect(() => {
     preview(getEmptyImage(), {

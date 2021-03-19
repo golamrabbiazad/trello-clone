@@ -7,10 +7,10 @@
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
-    "nanoid": "^3.1.20",
+    "nanoid": "^3.1.22",
     "react": "^17.0.1",
-    "react-dnd": "^13.1.1",
-    "react-dnd-html5-backend": "^12.1.1",
+    "react-dnd": "13.1.1",
+    "react-dnd-html5-backend": "12.1.1",
     "react-dom": "^17.0.1",
     "styled-components": "^5.2.1"
   },
@@ -21,14 +21,14 @@
     "@snowpack/web-test-runner-plugin": "^0.2.1",
     "@testing-library/react": "^11.2.5",
     "@types/chai": "^4.2.15",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.1",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
     "@types/snowpack-env": "^2.3.3",
-    "@types/styled-components": "^5.1.7",
-    "@web/test-runner": "^0.12.15",
-    "chai": "^4.3.1",
+    "@types/styled-components": "^5.1.9",
+    "@web/test-runner": "^0.12.17",
+    "chai": "^4.3.4",
     "prettier": "^2.2.1",
     "snowpack": "^3.0.13",
-    "typescript": "^4.2.2"
+    "typescript": "^4.2.3"
   }
 }
