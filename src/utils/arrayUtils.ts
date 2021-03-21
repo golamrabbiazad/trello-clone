@@ -1,4 +1,4 @@
-interface Item {
+type Item = {
   id: string;
 }
 
