@@ -2,8 +2,8 @@ import React from 'react';
 import { AddNewItem } from './AddNewItem';
 import { useAppState } from './AppStateContext';
 import { Column } from './Column';
-import CustomDragLayer from './CustomDragLayer';
 import { AppContainer } from './styles';
+import CustomDragLayer from './CustomDragLayer';
 
 const App = () => {
   const { state, dispatch } = useAppState();

@@ -1,5 +1,7 @@
 import { nanoid } from 'nanoid';
-import React, { createContext, useReducer, useContext } from 'react';
+import React, { createContext, useReducer, useContext, useEffect } from 'react';
+import { save } from './api/api';
+import { withData } from './api/withData';
 import type { DragItem } from './DragItem';
 import {
   findItemIndexById,
@@ -25,27 +27,6 @@ export type AppState = {
   lists: List[];
 };
 
-const appData: AppState = {
-  lists: [
-    {
-      id: '0',
-      text: 'Todo',
-      tasks: [{ id: 'c0', text: 'Generate app Scaffold' }],
-    },
-    {
-      id: '1',
-      text: 'In Progress',
-      tasks: [{ id: 'c2', text: 'Learning TypeScript' }],
-    },
-    {
-      id: '2',
-      text: 'Done',
-      tasks: [{ id: 'c3', text: 'Begin to use static typing' }],
-    },
-  ],
-  draggedItem: undefined,
-};
-
 type AppStateContextProps = {
   state: AppState;
   dispatch: React.Dispatch<Action>;
@@ -55,19 +36,24 @@ const AppStateContext = createContext<AppStateContextProps>(
   {} as AppStateContextProps,
 );
 
-export const AppStateProvider = ({ children }: React.PropsWithChildren<{}>) => {
-  const [state, dispatch] = useReducer(appStateReducer, appData);
+export const AppStateProvider = withData(
+  ({
+    children,
+    initialState,
+  }: React.PropsWithChildren<{ initialState: AppState }>) => {
+    const [state, dispatch] = useReducer(appStateReducer, initialState);
 
-  return (
-    <AppStateContext.Provider value={{ state, dispatch }}>
-      {children}
-    </AppStateContext.Provider>
-  );
-};
+    useEffect(() => {
+      save(state);
+    }, [state]);
 
-export const useAppState = () => {
-  return useContext(AppStateContext);
-};
+    return (
+      <AppStateContext.Provider value={{ state, dispatch }}>
+        {children}
+      </AppStateContext.Provider>
+    );
+  },
+);
 
 type Action =
   | {
@@ -202,4 +188,8 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
       return state;
     }
   }
+};
+
+export const useAppState = () => {
+  return useContext(AppStateContext);
 };
