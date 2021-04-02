@@ -3,6 +3,7 @@ import React, { createContext, useReducer, useContext, useEffect } from 'react';
 import { save } from './api/api';
 import { withData } from './api/withData';
 import type { DragItem } from './DragItem';
+import type { Action } from './state/actions';
 import {
   findItemIndexById,
   overrideItemAtIndex,
@@ -23,7 +24,7 @@ type List = {
 };
 
 export type AppState = {
-  draggedItem: DragItem | undefined;
+  draggedItem: DragItem | null;
   lists: List[];
 };
 
@@ -54,36 +55,6 @@ export const AppStateProvider = withData(
     );
   },
 );
-
-type Action =
-  | {
-      type: 'SET_DRAGGED_ITEM';
-      payload: DragItem | undefined;
-    }
-  | { type: 'ADD_LIST'; payload: string }
-  | {
-      type: 'ADD_TASK';
-      payload: {
-        text: string;
-        listId: string;
-      };
-    }
-  | {
-      type: 'MOVE_LIST';
-      payload: {
-        dragIndex: number;
-        hoverIndex: number;
-      };
-    }
-  | {
-      type: 'MOVE_TASK';
-      payload: {
-        dragIndex: number;
-        hoverIndex: number;
-        sourceColumn: string;
-        targetColumn: string;
-      };
-    };
 
 const appStateReducer = (state: AppState, action: Action): AppState => {
   switch (action.type) {
