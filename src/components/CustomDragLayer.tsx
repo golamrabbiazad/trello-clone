@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
 import { useDragLayer, XYCoord } from 'react-dnd';
+
 import { Card } from './Card';
 import { Column } from './Column';
-import { CustomDragLayerContainer } from './styles';
+import { CustomDragLayerContainer } from '../styles';
 
 function getItemStyles(currentOffset: XYCoord | null): React.CSSProperties {
   if (!currentOffset) {
@@ -20,7 +20,7 @@ function getItemStyles(currentOffset: XYCoord | null): React.CSSProperties {
   };
 }
 
-const CustomDragLayer: FC = () => {
+const CustomDragLayer = () => {
   const { isDragging, item, currentOffset } = useDragLayer((monitor) => ({
     item: monitor.getItem(),
     currentOffset: monitor.getSourceClientOffset(),

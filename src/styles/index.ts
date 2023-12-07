@@ -55,7 +55,7 @@ export const CardContainer = styled(DragPreviewContainer)`
 `;
 
 type AddItemButtonProps = {
-  dark?: Boolean;
+  dark?: boolean;
 };
 
 export const AddItemButton = styled.button<AddItemButtonProps>`

@@ -1,12 +1,13 @@
-import React, { useRef } from 'react';
-import { AddNewItem } from './AddNewItem';
-import { useAppState } from './AppStateContext';
-import { Card } from './Card';
-import { useItemDrag } from './useItemDrag';
-import { ColumnContainer, ColumnTitle } from './styles';
+import { useRef } from 'react';
 import { useDrop } from 'react-dnd';
-import type { DragItem } from './DragItem';
-import { isHidden } from './utils/isHidden';
+
+import { Card } from './Card';
+import { AddNewItem } from './AddNewItem';
+import { isHidden } from '../utils/isHidden';
+import { DragItem } from '../types/DragItem';
+import { useItemDrag } from '../hooks/useItemDrag';
+import { useAppState } from '../hooks/useAppState';
+import { ColumnContainer, ColumnTitle } from '../styles';
 
 type ColumnProps = {
   text: string;
@@ -16,7 +17,7 @@ type ColumnProps = {
 };
 
 export const Column = ({ text, index, id, isPreview }: ColumnProps) => {
-  const { state, dispatch } = useAppState();
+  const { draggedItem, lists, dispatch } = useAppState();
   const [, drop] = useDrop({
     accept: ['COLUMN', 'CARD'],
     hover(item: DragItem) {
@@ -62,10 +63,10 @@ export const Column = ({ text, index, id, isPreview }: ColumnProps) => {
     <ColumnContainer
       isPreview={isPreview}
       ref={ref}
-      isHidden={isHidden(isPreview, state.draggedItem, 'COLUMN', id)}
+      isHidden={isHidden(isPreview, draggedItem, 'COLUMN', id)}
     >
       <ColumnTitle>{text}</ColumnTitle>
-      {state.lists[index].tasks.map((task, i) => (
+      {lists[index].tasks.map((task, i) => (
         <Card
           text={task.text}
           key={task.id}

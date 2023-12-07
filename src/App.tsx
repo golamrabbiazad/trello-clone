@@ -1,17 +1,16 @@
-import React from 'react';
-import { AddNewItem } from './AddNewItem';
-import { useAppState } from './AppStateContext';
-import { Column } from './Column';
-import CustomDragLayer from './CustomDragLayer';
 import { AppContainer } from './styles';
+import { Column } from './components/Column';
+import { AddNewItem } from './components/AddNewItem';
+import CustomDragLayer from './components/CustomDragLayer';
+import { useAppState } from './hooks/useAppState';
 
 const App = () => {
-  const { state, dispatch } = useAppState();
+  const { lists, dispatch } = useAppState();
 
   return (
     <AppContainer>
       <CustomDragLayer />
-      {state.lists.map((list, i) => (
+      {lists.map((list, i) => (
         <Column id={list.id} text={list.text} key={list.id} index={i} />
       ))}
       <AddNewItem

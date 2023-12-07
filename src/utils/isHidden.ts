@@ -1,4 +1,4 @@
-import type { DragItem } from '../DragItem';
+import type { DragItem } from '../types/DragItem';
 
 export const isHidden = (
   isPreview: boolean | undefined,

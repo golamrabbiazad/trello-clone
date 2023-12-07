@@ -1,25 +1,51 @@
 # Trello Clone
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+## 🚀 Quick start
 
-## Available Scripts
+1. **Install dependencies for project**
 
-### npm start
+   System must have node.js, yarn installed. To install,
 
-Runs the app in the development mode.
-Open <http://localhost:3000> to view it in the browser.
+   ```shell
+   # install node.js
+   https://nodejs.org/en/
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+   # install yarn package manager
+   npm i -g yarn
+   ```
 
-### npm run build
+1. **Clone the Repository**
 
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
+   **DOWNLOAD AS ZIP** or Clone this repository.
 
-**For the best production performance:** Add a build bundler plugin like "@snowpack/plugin-webpack" to your `snowpack.config.js` config file.
+   ```shell
+   # github repo
+   git clone https://github.com/golamrabbiazad/trello-clone.git
+   ```
 
-### npm test
+1. **Start developing.**
 
-Launches the application test runner.
-Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch mode.
+   Navigate into your new site’s directory and start it up.
+
+   ```shell
+   cd trello-clone/
+
+   # install library dependencies
+   yarn
+
+   # run development server
+   yarn dev
+   ```
+
+   Your site is now running at `http://localhost:3000`
+
+1. **Production Build**
+
+   Make the app for the production ready performant level.
+
+      ```shell
+   # run as production ready app.
+   yarn start
+   ```
+
+   Your site is now running at `http://localhost:3000`
